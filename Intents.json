@@ -1,0 +1,80 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns":  [
+        "Hello",
+        "Hiya",
+        "Hello you alright"
+      ],
+      "responses": [
+        "Hello my Friend",
+        "Hello there sir. How are you doing today."
+      ]
+    },
+    {
+      "tag": "question",
+      "patterns": ["I have a question", "Can I ask a question"]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What is your name",
+        "What should I call you"
+      ],
+      "responses": [
+        "My real name is Qbo.One. But feel free to call me Tom. I am a robot manufactured by Thecorpora. I am here to assist you."
+      ]
+    },
+    {
+      "tag": "note",
+      "patterns": [
+        "Create a note for me",
+        "Create a note",
+        "Can you make a note",
+        "I want to make a note",
+        "Start a new note",
+        "I need to make a note"
+      ],
+      "responses": ["Sure, I'll create a new note for you."]
+    },
+    {
+      "tag": "date",
+      "patterns": ["what is today's date", "tell me today's date"],
+      "responses": []
+    },
+    {
+      "tag": "time",
+      "patterns": ["what is the time", "tell me the time"],
+      "responses": []
+    },
+    {
+      "tag": "read",
+      "patterns": [ "read notes", "read my notes", "read note",
+                    "read my note", "tell me my notes", "what are my notes"
+                  ],
+      "responses": [""]
+    },
+    {
+      "tag": "news",
+      "patterns": ["get me the news",
+                    "tell me the news",
+                    "what's the news",
+                    "show me the news"
+                   ],
+      "responses": []
+    },
+    {
+      "tag": "exit",
+      "patterns": [
+        "exit",
+        "close",
+        "shut down",
+        "quit",
+        "stop"
+      ],
+      "responses": ["Goodbye!"]
+    }
+  ]
+}
+

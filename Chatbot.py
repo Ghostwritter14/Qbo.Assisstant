@@ -4,7 +4,7 @@ import openai
 
 class Chatbot:
     def __init__(self):
-        openai.api_key = "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"
+        openai.api_key = os.getenv("OPENAI_API_KEY")
         self.messages = [
             {"role": "system", "content": "You are a helpful assistant."},
         ]

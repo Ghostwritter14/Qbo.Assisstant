@@ -27,8 +27,8 @@ Though nothing can replace the crucial role played by caregivers, yet as humans 
 
 ## Features
 
-- Full voice functionality - the program is totally controlled with voice commands and doesnot require the user to type anything.
-- Facial Recognition- to make the interraction between the user and the robot more personal the assisstant uses facial recognition to address its user with their name at the begining of the program.
+- Full voice functionality - the program is totally controlled with voice commands and doesn't require the user to type anything.
+- Facial Recognition- to make the interaction between the user and the robot more personal the assistant uses facial recognition to address its user with their name at the begining of the program.
 - FAQs - the program is able to answer common questions for e.g. date, time, or day.
 - Take notes - The assisstant is capable of taking notes for the user. It is currently able to store them in a .txt file and can also read out the notes that a user may have jotted down.
 - Question mode- The assisstant is able to answer any question based on general knowledge and current events as far as 2021 when question mode is prompted. It uses the GPT3.5 framework to achieve such. 
@@ -42,13 +42,9 @@ Though nothing can replace the crucial role played by caregivers, yet as humans 
 To run this program you would need atleast python 3.10 or higher as well as C++ visual studio build tool.
 ## Installation
 - Clone the repository. 
-- Setup Virtual environment (not nessecary but reccomended):
-     
-        python -m venv venv
-        source venv/bin/activate # for Linux and MacOS
-        venv\scripts\activate # for Windows 
+- Setup Virtual environment (not necessary but reccomended).
 
-- Install the dependancies. run this command in the terminal:
+- Install the dependencies. run this command in the terminal:
     
     `pip install -r requirements.txt` 
 
@@ -89,7 +85,7 @@ The user can ask for the news of the day like asking qbo to show the news. for e
                     "tell me the news",
                     "what's the news". This will open a new window with the article titles displayed for the top 10 trending news of the moment. Clicking an article redirects to the default webbrowser where the news article will be opened for the user to read. 
 
-To exit the program the user can tell Qbo to shutdown. for e.g. "exit","close","shut down". 
+To exit the program the user can tell Qbo to shut down. for e.g. "exit","close","shut down". 
 
 
 

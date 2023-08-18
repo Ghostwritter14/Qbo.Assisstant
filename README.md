@@ -11,7 +11,7 @@ The aim of this software is to test levels of human robot interraction that Qbo.
 
 I want to acknowledge all the people from whoom I got the idea of how an AI assisstant looks like and how to build one. I am also gratefull to the people that helped me throughout the journey to build the base program and help with debugging of it.  
 
- - Dr Giovanni Luca Masala- Senior Lecturer in Computer Science, University of Kent.
+ - Dr Giovanni Luca Masala - Senior Lecturer in Computer Science, University of Kent.
  - Dr. Ioanna Giorgi - Lecturer in Artificial Intelligence, University of Kent.
  - https://github.com/Mikael-Codes. Youtube - Mikael Codes.
  - https://github.com/NeuralNine. Youtube - NeuralNine.
@@ -46,7 +46,7 @@ To run this program you would need atleast python 3.10 or higher as well as C++ 
 
 - Install the dependencies. run this command in the terminal:
     
-    `pip install -r requirements.txt` 
+     `pip install -r requirements.txt` 
 
 
 ## Environment Variables
@@ -107,6 +107,9 @@ List of Technologies used are:
    - Json
    - requests
    - speech_recognition
+   - mediastack
+   - numpy
+   - 
    
 ## Roadmap
 

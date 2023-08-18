@@ -38,7 +38,7 @@ class FaceRecognizer:
         # Convert the image from BGR color (OpenCV uses this) to RGB color
         rgb_frame = frame[:, :, ::-1]  # Convert BGR to RGB
 
-        # check prints
+        # checks
         print("--------------------------------------------------")
         print(f"Type of rgb_frame: {type(rgb_frame)}")
         print(f"Shape of rgb_frame: {rgb_frame.shape}")
@@ -48,7 +48,7 @@ class FaceRecognizer:
         # Detect faces using dlib get_frontal_face_detector
         face_locations = self.face_detector(rgb_frame)
 
-        # Diagnostic prints
+        # checks
         print(f"Type of face_locations: {type(face_locations)}")
         print(f"Number of detected faces: {len(face_locations)}")
         if face_locations:
@@ -59,7 +59,7 @@ class FaceRecognizer:
         # Convert the rectangles into landmarks
         landmarks = [self.shape_predictor(rgb_frame, face_location) for face_location in face_locations]
 
-        # check prints
+        # checks
         for idx, landmark in enumerate(landmarks):
             print(f"Type of landmark #{idx + 1}: {type(landmark)}")
             print(f"Number of parts in landmark #{idx + 1}: {landmark.num_parts}")

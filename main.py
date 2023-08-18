@@ -21,9 +21,10 @@ stop_event = threading.Event()
 
 
 class Assistant:
+
+    # Constructor for the Assistant
     def __init__(self):
         self.recognizer = sr.Recognizer()
-        self.todos = []
         self.executor = ThreadPoolExecutor(max_workers=1)
         self.note_mode = False
         self.assistant_methods = {
@@ -57,6 +58,8 @@ class Assistant:
         self.root.mainloop()
 
     def remove_file(self, filename):
+        # function for cleaning previous audio files on each new run of the program or if the assistant
+        # is issued with another same prompt giving the same result
         if os.path.exists(filename):
             pygame.mixer.music.unload()
             os.remove(filename)
@@ -68,23 +71,22 @@ class Assistant:
         pygame.mixer.music.load(filename)
         pygame.mixer.music.play()
 
-        while pygame.mixer.music.get_busy():  # wait for music to finish playing
+        while pygame.mixer.music.get_busy():  # wait for audio to finish playing
             pygame.time.Clock().tick(10)
 
         self.remove_file(filename)
 
     def greet(self):
-        # Start the webcam
+        # Start the webcam for live face recognition
         video_capture = cv2.VideoCapture(0)
 
         # Check if webcam opens successfully
         if not video_capture.isOpened():
             return "Hello! I couldn't access the camera."
 
-        # Capture a single frame
+        # Capture the frame
         ret, frame = video_capture.read()
 
-        # Release the webcam after capturing frame
         video_capture.release()
 
         if not ret:
@@ -122,16 +124,19 @@ class Assistant:
         return "Here are the latest news."
 
     def ask_chatbot(self, text):
+        # function to access gpt framework activated by prompt question
         self.speak("Please ask")
         response = self.chatbot.get_response(text)
         self.speak(response)  # The assistant will speak the response
         return response
 
     def reset_chatbot(self):
+        # resets the chatbot after giving the response to an input
         self.chatbot.reset_messages()
         return "Chatbot reset. You can start a new conversation now."
 
     def read_notes(self):
+        # reads the notes saved in a txt file created with create note function
         filename = datetime.today().strftime('%Y-%m-%d') + ".txt"
         try:
             with open(filename, 'r') as f:
@@ -145,14 +150,16 @@ class Assistant:
         return "Goodbye!"
 
     def delete_yesterdays_notes(self):
+        # Delete notes from yesterday
         yesterday = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d') # 7 days
         filename = yesterday + ".txt"
         try:
             os.remove(filename)
         except FileNotFoundError:
-            pass      # File didn't exist, nothing to do
+            pass      # No file exists, do nothing
 
     def request(self, text):
+        # function where the assistant 
         if self.note_mode:
             note_text = self.create_note(text)
             self.note_mode = False

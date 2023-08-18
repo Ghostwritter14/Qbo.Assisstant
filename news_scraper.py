@@ -9,6 +9,7 @@ class NewsScraper:
         self.master = master
 
     def fetch_news(self):
+        # fetch and store the news in json format
         response = requests.get(self.url)
         data = response.json()
         return data.get('data', [])
@@ -17,6 +18,7 @@ class NewsScraper:
         news = self.fetch_news()
 
         if news:
+            # create a splash window for the news articles
             self.news_window = tk.Toplevel(self.master)
             self.news_window.geometry("640x480")
             self.news_window.protocol("WM_DELETE_WINDOW", self.close_news)
@@ -32,9 +34,11 @@ class NewsScraper:
             print("No news to display.")
 
     def open_link(self, url):
+        # open the news in the default web-browser
         webbrowser.open(url)
 
     def close_news(self):
+        # close the news window without harming the execution of the main program
         self.news_window.destroy()
 
 

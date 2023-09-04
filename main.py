@@ -165,6 +165,7 @@ class Assistant:
             self.note_mode = False
             return f"Note added: {note_text}"
         else:
+            # question mode to activate gpt model
             if "i have a question" in text.lower():
                 question = text.lower().replace("i have a question", "").strip()
                 return self.assistant_methods["question"](question)

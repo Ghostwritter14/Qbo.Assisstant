@@ -9,7 +9,8 @@
       ],
       "responses": [
         "Hello my Friend",
-        "Hello there sir. How are you doing today."
+        "Hello there sir. How are you doing today.",
+        "Hiya how have your day been."
       ]
     },
     {
@@ -23,7 +24,7 @@
         "What should I call you"
       ],
       "responses": [
-        "My real name is Qbo.One. But feel free to call me Tom. I am a robot manufactured by Thecorpora. I am here to assist you."
+        "My real name is Qbo.One. But feel free to call me whatever you like. I am a robot manufactured by Thecorpora. I am here to assist you."
       ]
     },
     {

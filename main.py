@@ -27,6 +27,7 @@ class Assistant:
         self.recognizer = sr.Recognizer()
         self.executor = ThreadPoolExecutor(max_workers=1)
         self.note_mode = False
+        self.chat_mode = False
         self.assistant_methods = {
             "greeting": self.greet,
             "name": self.get_name,
@@ -125,9 +126,11 @@ class Assistant:
 
     def ask_chatbot(self, text):
         # function to access gpt framework activated by prompt question
-        self.speak("Please ask")
+        #self.speak("Please ask")
+        print("Chatbot activated")
         response = self.chatbot.get_response(text)
-        self.speak(response)  # The assistant will speak the response
+        print(response)
+        #self.speak(response)  # The assistant will speak the response
         return response
 
     def reset_chatbot(self):
@@ -164,9 +167,18 @@ class Assistant:
             note_text = self.create_note(text)
             self.note_mode = False
             return f"Note added: {note_text}"
+        elif self.chat_mode:
+            if "exit chat" in text.lower() or "end conversation" in text.lower():
+                self.chat_mode = False
+                print('chatbot deactivated')
+                return "Chat mode exited. How can I assist you further?"
+            else:
+                return self.assistant_methods["question"](text)
+
         else:
             # question mode to activate gpt model
             if "i have a question" in text.lower():
+                self.chat_mode = True
                 question = text.lower().replace("i have a question", "").strip()
                 return self.assistant_methods["question"](question)
             else:
@@ -174,7 +186,7 @@ class Assistant:
                     for pattern in intent['patterns']:
                         if pattern.lower() in text.lower():
                             return self.assistant_methods[intent['tag']]()
-        return "Sorry, I don't understand."
+                #return "Sorry, I don't understand."
 
 
 
@@ -183,11 +195,13 @@ class Assistant:
         while not stop_event.is_set():
             try:
                 with sr.Microphone() as mic:
-                    self.recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                    self.recognizer.adjust_for_ambient_noise(mic, duration=0.3)
                     audio = self.recognizer.listen(mic)
+
 
                     text = self.executor.submit(self.recognizer.recognize_google, audio).result()
                     text = text.lower()
+                    print(text)
 
                     response = self.request(text)
                     if response:

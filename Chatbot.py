@@ -17,12 +17,17 @@ class Chatbot:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=self.messages,
-            max_tokens=1500,
-            temperature=0.5
+            max_tokens=550,
+            temperature=0.3
         )
 
         # workflow of the chatbot
         assistant_message = response['choices'][0]['message']['content']
+
+        # Replace undesired replies with a custom message
+        if "as an AI model I can't" in assistant_message:
+            assistant_message = "Sorry, I can't assist with that request."
+
         self.messages.append({"role": "assistant", "content": assistant_message})
 
         return assistant_message
@@ -31,6 +36,16 @@ class Chatbot:
         self.messages = [
             {"role": "system", "content": "You are a helpful assistant."},
         ]
+
+if __name__ == "__main__":
+    bot = Chatbot()
+
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() in ["exit", "quit", "bye"]:
+            break
+        response = bot.get_response(user_input)
+        print(f"Bot: {response}")
 
 
 

@@ -15,7 +15,7 @@
     },
     {
       "tag": "question",
-      "patterns": ["I have a question", "Can I ask a question"]
+      "patterns": ["I have a question", "Can I ask a question", "question", "can you answer this question for me"]
     },
     {
       "tag": "name",

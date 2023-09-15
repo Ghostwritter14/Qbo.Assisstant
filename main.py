@@ -126,11 +126,9 @@ class Assistant:
 
     def ask_chatbot(self, text):
         # function to access gpt framework activated by prompt question
-        #self.speak("Please ask")
         print("Chatbot activated")
         response = self.chatbot.get_response(text)
         print(response)
-        #self.speak(response)  # The assistant will speak the response
         return response
 
     def reset_chatbot(self):
@@ -162,7 +160,7 @@ class Assistant:
             pass      # No file exists, do nothing
 
     def request(self, text):
-        # function where the assistant 
+        # function where the assistant
         if self.note_mode:
             note_text = self.create_note(text)
             self.note_mode = False
@@ -186,7 +184,7 @@ class Assistant:
                     for pattern in intent['patterns']:
                         if pattern.lower() in text.lower():
                             return self.assistant_methods[intent['tag']]()
-                #return "Sorry, I don't understand."
+            return "Sorry, I don't understand."
 
 
 
@@ -206,6 +204,7 @@ class Assistant:
                     response = self.request(text)
                     if response:
                         self.speak(response)
+                        time.sleep(0.5)
             except sr.UnknownValueError:
                 self.speak("I'm sorry, I didn't catch that. Could you please repeat?")
             except sr.RequestError:

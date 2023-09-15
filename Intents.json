@@ -5,7 +5,8 @@
       "patterns":  [
         "Hello",
         "Hiya",
-        "Hello you alright"
+        "Hello you alright",
+        "greeting"
       ],
       "responses": [
         "Hello my Friend",
@@ -21,7 +22,8 @@
       "tag": "name",
       "patterns": [
         "What is your name",
-        "What should I call you"
+        "What should I call you",
+        "Who are you"
       ],
       "responses": [
         "My real name is Qbo.One. But feel free to call me whatever you like. I am a robot manufactured by Thecorpora. I am here to assist you."

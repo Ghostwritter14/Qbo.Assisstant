@@ -26,7 +26,7 @@ class Chatbot:
 
         # Replace undesired replies with a custom message
         if "as an AI model I can't" in assistant_message:
-            assistant_message = "Sorry, I can't assist with that request."
+            assistant_message = "Sorry, I can't assist you with that request."
 
         self.messages.append({"role": "assistant", "content": assistant_message})
 

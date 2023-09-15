@@ -42,6 +42,18 @@ class NewsScraper:
         self.news_window.destroy()
 
 
+if __name__ == '__main__':
+    root = tk.Tk()  # Create the main root window
+    root.geometry("300x150")
+    root.title("News App")
+
+    scraper = NewsScraper(root)  # Initialize the NewsScraper
+
+    # Add a button to fetch and show news
+    btn = tk.Button(root, text="Show News", command=scraper.show_news)
+    btn.pack(pady=50)
+
+    root.mainloop()  # Run the tkinter main loop
 
 
 

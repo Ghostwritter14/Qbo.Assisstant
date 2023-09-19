@@ -109,11 +109,11 @@ List of Technologies used are:
    - speech_recognition
    - mediastack
    - numpy
-   - 
+   - OpenAI (key provided in the corpus)
    
 ## Roadmap
 
-The program is in an alpha stage and is still under developement. But here are some features planned for the comming days going ahead. 
+The program is in an alpha stage and is still under developement. But here are some features planned for the future going ahead. 
 
 - Building a more robust note taking system via integrating MongoDB. Notes will be stored for upto 7 days after which the oldest note will be deleted on the next run. 
 - Personalisation of news. Though the assisstant displays news, there are plans to upgrade it where it can display news based on preferance of the user.

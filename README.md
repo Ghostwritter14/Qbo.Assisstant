@@ -53,7 +53,7 @@ To run this program you would need atleast python 3.10 or higher as well as C++ 
 
 To run this project, there is an additional need to setup an environment variable within the operating system. This is mainly for the openai api key as OpenAI does't allow sharing of api key in a public environment. 
 
-`API_KEY is provided within my dissertation pdf document`
+`API_KEY is provided within my corpus pdf document`
 
 
 
